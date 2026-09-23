@@ -68,9 +68,9 @@ const RequireAdmin = ({ children }) => {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+    <div className="min-h-screen bg-[var(--bg)] text-[var(--text)] flex flex-col font-sans">
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 bg-[var(--bg)]">
         <Routes>
           {/* Public */}
           <Route path="/" element={<LandingPage />} />

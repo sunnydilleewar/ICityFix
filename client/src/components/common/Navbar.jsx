@@ -46,25 +46,25 @@ export default function Navbar() {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/55 backdrop-blur-2xl">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-[#081b1e]/75 backdrop-blur-2xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 h-20">
         {/* Brand */}
-        <Link to="/" className="flex items-center gap-3 rounded-full border border-white/40 bg-white/35 px-2.5 py-1.5 shadow-sm backdrop-blur">
-          <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-civic-600 via-civic-500 to-violet-500 shadow-lg shadow-civic-500/25">
+        <Link to="/" className="flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-2.5 py-1.5 shadow-[0_12px_32px_rgba(0,0,0,0.18)] backdrop-blur">
+          <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-[#4cc4b0] via-[#2bb5c7] to-[#1a7d77] shadow-lg shadow-[#2bb5c7]/20">
             <img src="/logo.svg" alt="iCityFix logo" className="h-8 w-8" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-lg font-extrabold tracking-[-0.04em] text-slate-900">
-                iCity<span className="bg-gradient-to-r from-civic-600 to-violet-500 bg-clip-text text-transparent">Fix</span>
+              <span className="text-lg font-extrabold tracking-[-0.04em] text-white">
+                iCity<span className="text-[#7fe0d2]">Fix</span>
               </span>
               {isAdmin && (
-                <span className="rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] text-violet-700">
+                <span className="rounded-full bg-[#123339] px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[#9fe7d7]">
                   Ops
                 </span>
               )}
             </div>
-            <p className="hidden text-[10px] font-medium tracking-[0.12em] text-slate-500 uppercase sm:block">
+            <p className="hidden text-[10px] font-medium tracking-[0.12em] text-slate-300 uppercase sm:block">
               Civic Intelligence
             </p>
           </div>
