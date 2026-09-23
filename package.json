@@ -1,0 +1,20 @@
+{
+  "name": "icityfix",
+  "version": "1.0.0",
+  "description": "iCityFix - Municipal-grade civic technology platform for Indian cities",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "npm --prefix server run dev",
+    "client": "npm --prefix client run dev",
+    "seed": "npm --prefix server run seed",
+    "build": "npm --prefix client run build",
+    "install:all": "npm install && npm --prefix server install && npm --prefix client install"
+  },
+  "keywords": ["civic-tech", "smart-city", "mern", "geospatial", "leaflet"],
+  "author": "iCityFix Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
