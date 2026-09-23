@@ -3,7 +3,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
 const dotenv = require('dotenv');
-const { connectDB } = require('./config/db');
+const { connectDB, closeDB } = require('./config/db');
 const { sequelize, User } = require('./models');
 const { Umzug, SequelizeStorage } = require('umzug');
 const errorHandler = require('./middleware/errorHandler');
@@ -60,6 +60,16 @@ if (process.env.NODE_ENV !== 'production') {
 // Serve uploaded files statically
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+// Root route for API sanity checks
+app.get('/', (req, res) => {
+  res.json({
+    status: 'ok',
+    service: 'iCityFix Municipal API',
+    message: 'API is running. Use /api/health for service status.',
+    timestamp: new Date().toISOString(),
+  });
+});
+
 // Health Check API
 app.get('/api/health', async (req, res) => {
   try {
@@ -90,14 +100,23 @@ app.use('/api/notifications', require('./routes/notificationRoutes'));
 app.use('/api/ai', require('./routes/aiRoutes'));
 app.use('/api/uploads', require('./routes/uploadRoutes'));
 
+app.use((req, res) => {
+  res.status(404).json({
+    success: false,
+    message: `Route not found: ${req.originalUrl}`,
+  });
+});
+
 // Centralized Error Handling
 app.use(errorHandler);
+
+let server;
 
 const startServer = async () => {
   try {
     await initializeDatabase();
 
-    app.listen(PORT, () => {
+    server = app.listen(PORT, () => {
       console.log(`=======================================================`);
       console.log(`  ICITYFIX MUNICIPAL TECH PLATFORM - BACKEND READY  `);
       console.log(`  Server Port : http://localhost:${PORT}             `);
@@ -109,6 +128,22 @@ const startServer = async () => {
     process.exit(1);
   }
 };
+
+const shutdown = async () => {
+  try {
+    if (server) {
+      await new Promise((resolve) => server.close(resolve));
+    }
+    await closeDB();
+    process.exit(0);
+  } catch (err) {
+    console.error('[SERVER] Shutdown error:', err.message);
+    process.exit(1);
+  }
+};
+
+process.on('SIGINT', shutdown);
+process.on('SIGTERM', shutdown);
 
 startServer();
 

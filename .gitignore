@@ -12,3 +12,7 @@ npm-debug.log*
 .vite/
 coverage/
 .git/
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm

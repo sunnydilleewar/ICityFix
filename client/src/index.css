@@ -2,10 +2,91 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg: #f4f8ff;
+  --bg-strong: #eaf4ff;
+  --panel: rgba(255, 255, 255, 0.64);
+  --panel-strong: rgba(255, 255, 255, 0.88);
+  --border: rgba(15, 23, 42, 0.08);
+  --text: #0f172a;
+  --muted: #475569;
+  --primary: #0e8de9;
+  --primary-2: #7c3aed;
+  --success: #10b981;
+  --shadow: 0 20px 50px rgba(15, 23, 42, 0.10);
+}
+
 @layer base {
-  body {
-    @apply font-sans bg-slate-50 text-slate-900;
+  html {
+    scroll-behavior: smooth;
   }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(92, 200, 247, 0.28), transparent 26%),
+      radial-gradient(circle at top right, rgba(124, 58, 237, 0.18), transparent 26%),
+      linear-gradient(180deg, #f8fbff 0%, #eef6ff 42%, #f8fbff 100%);
+    color: var(--text);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::selection {
+    background: rgba(14, 141, 233, 0.18);
+    color: var(--text);
+  }
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+}
+
+.premium-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.64));
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+}
+
+.premium-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(14, 141, 233, 0.18);
+  background: linear-gradient(135deg, #0e8de9 0%, #5cc8f7 50%, #7c3aed 100%);
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 18px 35px rgba(14, 141, 233, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.premium-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 22px 40px rgba(14, 141, 233, 0.30);
+}
+
+.soft-ring {
+  box-shadow: 0 0 0 1px rgba(14, 141, 233, 0.18), 0 12px 26px rgba(14, 141, 233, 0.12);
+}
+
+.section-shell {
+  background: rgba(255, 255, 255, 0.56);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.05);
 }
 
 /* Custom Leaflet Map styling for civic aesthetic */
@@ -33,7 +114,6 @@
   background: white;
 }
 
-/* Custom Marker Pins */
 .civic-marker-pin {
   display: flex;
   align-items: center;
@@ -52,7 +132,6 @@
   z-index: 999;
 }
 
-/* Pulse animation for high priority / current GPS pin */
 .pulse-ring {
   position: relative;
 }
@@ -86,18 +165,17 @@
   }
 }
 
-/* Scrollbar polish */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: rgba(148, 163, 184, 0.15);
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
+  background: rgba(14, 141, 233, 0.45);
+  border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: rgba(14, 141, 233, 0.7);
 }

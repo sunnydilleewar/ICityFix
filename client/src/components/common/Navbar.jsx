@@ -46,37 +46,26 @@ export default function Navbar() {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
+    <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/55 backdrop-blur-2xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 h-20">
         {/* Brand */}
-        <Link to="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-civic-600 text-white shadow-md shadow-civic-500/20">
-            <svg
-              className="h-6 w-6"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z" />
-              <path d="M7 11h2l1-3 3 6 2-4 1 1h2" />
-            </svg>
+        <Link to="/" className="flex items-center gap-3 rounded-full border border-white/40 bg-white/35 px-2.5 py-1.5 shadow-sm backdrop-blur">
+          <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-civic-600 via-civic-500 to-violet-500 shadow-lg shadow-civic-500/25">
+            <img src="/logo.svg" alt="iCityFix logo" className="h-8 w-8" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-lg font-extrabold tracking-tight text-slate-900">
-                iCity<span className="text-civic-600">Fix</span>
+              <span className="text-lg font-extrabold tracking-[-0.04em] text-slate-900">
+                iCity<span className="bg-gradient-to-r from-civic-600 to-violet-500 bg-clip-text text-transparent">Fix</span>
               </span>
               {isAdmin && (
-                <span className="rounded-full bg-purple-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-purple-700">
-                  Municipal Ops
+                <span className="rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] text-violet-700">
+                  Ops
                 </span>
               )}
             </div>
-            <p className="hidden text-[10px] font-medium text-slate-400 sm:block">
-              Municipal Operations & Citizen Reporting
+            <p className="hidden text-[10px] font-medium tracking-[0.12em] text-slate-500 uppercase sm:block">
+              Civic Intelligence
             </p>
           </div>
         </Link>
@@ -89,10 +78,10 @@ export default function Navbar() {
               <>
                 <Link
                   to="/admin"
-                  className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-medium transition-all ${
                     isActive('/admin')
-                      ? 'bg-civic-50 text-civic-700 font-semibold'
-                      : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                      ? 'bg-civic-50 text-civic-700 ring-1 ring-civic-100 shadow-sm'
+                      : 'text-slate-600 hover:bg-white/70 hover:text-slate-900'
                   }`}
                 >
                   <LayoutDashboard className="h-4 w-4" />
@@ -100,10 +89,10 @@ export default function Navbar() {
                 </Link>
                 <Link
                   to="/admin/reports"
-                  className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-medium transition-all ${
                     isActive('/admin/reports')
-                      ? 'bg-civic-50 text-civic-700 font-semibold'
-                      : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                      ? 'bg-civic-50 text-civic-700 ring-1 ring-civic-100 shadow-sm'
+                      : 'text-slate-600 hover:bg-white/70 hover:text-slate-900'
                   }`}
                 >
                   <ListFilter className="h-4 w-4" />
@@ -111,10 +100,10 @@ export default function Navbar() {
                 </Link>
                 <Link
                   to="/admin/map"
-                  className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-medium transition-all ${
                     isActive('/admin/map')
-                      ? 'bg-civic-50 text-civic-700 font-semibold'
-                      : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                      ? 'bg-civic-50 text-civic-700 ring-1 ring-civic-100 shadow-sm'
+                      : 'text-slate-600 hover:bg-white/70 hover:text-slate-900'
                   }`}
                 >
                   <MapPin className="h-4 w-4" />
@@ -122,10 +111,10 @@ export default function Navbar() {
                 </Link>
                 <Link
                   to="/admin/analytics"
-                  className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-medium transition-all ${
                     isActive('/admin/analytics')
-                      ? 'bg-civic-50 text-civic-700 font-semibold'
-                      : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                      ? 'bg-civic-50 text-civic-700 ring-1 ring-civic-100 shadow-sm'
+                      : 'text-slate-600 hover:bg-white/70 hover:text-slate-900'
                   }`}
                 >
                   <BarChart3 className="h-4 w-4" />
@@ -137,10 +126,10 @@ export default function Navbar() {
               <>
                 <Link
                   to="/dashboard"
-                  className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-medium transition-all ${
                     isActive('/dashboard')
-                      ? 'bg-civic-50 text-civic-700 font-semibold'
-                      : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                      ? 'bg-civic-50 text-civic-700 ring-1 ring-civic-100 shadow-sm'
+                      : 'text-slate-600 hover:bg-white/70 hover:text-slate-900'
                   }`}
                 >
                   <LayoutDashboard className="h-4 w-4" />
@@ -148,10 +137,10 @@ export default function Navbar() {
                 </Link>
                 <Link
                   to="/my-reports"
-                  className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-medium transition-all ${
                     isActive('/my-reports')
-                      ? 'bg-civic-50 text-civic-700 font-semibold'
-                      : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                      ? 'bg-civic-50 text-civic-700 ring-1 ring-civic-100 shadow-sm'
+                      : 'text-slate-600 hover:bg-white/70 hover:text-slate-900'
                   }`}
                 >
                   <ListFilter className="h-4 w-4" />
@@ -159,10 +148,10 @@ export default function Navbar() {
                 </Link>
                 <Link
                   to="/nearby"
-                  className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-medium transition-all ${
                     isActive('/nearby')
-                      ? 'bg-civic-50 text-civic-700 font-semibold'
-                      : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                      ? 'bg-civic-50 text-civic-700 ring-1 ring-civic-100 shadow-sm'
+                      : 'text-slate-600 hover:bg-white/70 hover:text-slate-900'
                   }`}
                 >
                   <MapPin className="h-4 w-4" />
@@ -370,13 +359,13 @@ export default function Navbar() {
             <div className="flex items-center gap-2">
               <Link
                 to="/login"
-                className="rounded-lg px-3.5 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 transition"
+                className="rounded-full border border-slate-200/80 bg-white/60 px-3.5 py-2 text-sm font-medium text-slate-700 transition hover:bg-white hover:text-slate-900"
               >
                 Sign In
               </Link>
               <Link
                 to="/register"
-                className="rounded-lg bg-civic-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-civic-700 transition"
+                className="premium-button px-4 py-2.5 text-sm"
               >
                 Register
               </Link>

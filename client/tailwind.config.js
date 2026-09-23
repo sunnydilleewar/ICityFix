@@ -8,17 +8,17 @@ export default {
     extend: {
       colors: {
         civic: {
-          50: '#f0f7ff',
-          100: '#e0effe',
-          200: '#bae0fd',
-          300: '#7cc7fb',
-          400: '#38a9f7',
-          500: '#0e8de9',
-          600: '#0270c7',
-          700: '#0359a1',
-          800: '#074b85',
-          900: '#0c3f6e',
-          950: '#082849',
+          50: '#eefbff',
+          100: '#dff8ff',
+          200: '#bfeefc',
+          300: '#93defc',
+          400: '#5cc8f7',
+          500: '#2bb2f3',
+          600: '#0e8de9',
+          700: '#0e6ec4',
+          800: '#14559d',
+          900: '#153f72',
+          950: '#0d2243',
         },
         navy: {
           800: '#0F172A',
@@ -39,8 +39,8 @@ export default {
       },
       boxShadow: {
         'subtle': '0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05)',
-        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05)',
-        'card-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04)',
+        'card': '0 12px 30px rgba(15, 23, 42, 0.08), 0 2px 10px rgba(14, 141, 233, 0.08)',
+        'card-hover': '0 18px 45px rgba(15, 23, 42, 0.12), 0 8px 18px rgba(14, 141, 233, 0.10)',
       }
     },
   },
